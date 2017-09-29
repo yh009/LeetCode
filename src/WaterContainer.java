@@ -11,7 +11,7 @@
 public class WaterContainer {
 
     public int maxArea(int[] height) {
-        int idx1 = 0;
+        /*int idx1 = 0;
         int idx2;
         int water = 0;
         int maxWater = 0;
@@ -26,7 +26,18 @@ public class WaterContainer {
                 }
             }
         }
-        return maxWater;
+        return maxWater;*/
+        int maxarea = 0, l = 0, r = height.length - 1;
+        while (l < r) {
+            maxarea = Math.max(maxarea, Math.min(height[l], height[r]) * (r - l));
+            if (height[l] < height[r]) {
+                l++;
+            }
+            else {
+                r--;
+            }
+        }
+        return maxarea;//O(n)
     }
 
 }
